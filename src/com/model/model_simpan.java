@@ -46,12 +46,51 @@ String jk;
    
     @Override
     public void Ubah(view siswa) throws SQLException {
-       
-    }
+       if (siswa.rbLaki.isSelected()){
+           jk = "Laki-Laki";
+       } else {
+           jk = "Perempuan";
+       }
+       try {
+           Connection con = koneksi.getcon();
+           String sql = "UPDATE siswa SET nama=?, jenis_kelamin=?, "
+                   + "jurusan=? WHERE NIS=?";
+           PreparedStatement prepare = con.prepareStatement(sql);
+           prepare.setString(4, siswa.txtNIS.getText());
+           prepare.setString(1, siswa.txtNama.getText());
+           prepare.setString(2, jk);
+           prepare.setString(3, (String) siswa.cbJurusan.getSelectedItem());
+           prepare.executeUpdate();
+           JOptionPane.showMessageDialog(null, "Data Berhasil diubah");
+           prepare.close();
+       } catch (Exception e) {
+           System.out.println(e); 
+       } finally {
+               Tampil(siswa);
+//               siswa.setLebarKolom();
+               Baru(siswa);
+               }
+       }
+           
+    
 
     @Override
     public void Hapus(view siswa) throws SQLException {
-       
+       try {
+           Connection con = koneksi.getcon();
+           String sql = "DELETE FROM siswa WHERE NIS =?";
+           PreparedStatement prepare = con.prepareStatement(sql);
+           prepare.setString(1, siswa.txtNIS.getText());
+           prepare.executeUpdate();
+           JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus");
+           prepare.close();
+       } catch (Exception e){
+           System.out.println(e);
+       }finally {
+           Tampil(siswa);
+//           siswa.setLebarKolom();
+           Baru(siswa);
+       }
     }
 
     @Override
