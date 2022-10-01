@@ -8,13 +8,13 @@ package com.view;
 import com.model.model_simpan;
 import java.sql.SQLException;
 import java.util.logging.Logger;
-
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author asus
  */
 public class view extends javax.swing.JFrame {
-
+public DefaultTableModel tblmodel;
     /**
      * Creates new form view
      */
@@ -48,7 +48,7 @@ model_simpan model = new model_simpan();
         btnHapus = new javax.swing.JButton();
         btnKeluar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablel = new javax.swing.JTable();
+        tabel = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,7 +122,7 @@ model_simpan model = new model_simpan();
         btnKeluar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnKeluar.setText("Keluar");
 
-        tablel.setModel(new javax.swing.table.DefaultTableModel(
+        tabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -133,7 +133,7 @@ model_simpan model = new model_simpan();
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tablel);
+        jScrollPane1.setViewportView(tabel);
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -310,7 +310,7 @@ model_simpan model = new model_simpan();
     public javax.swing.JPanel panel;
     public javax.swing.JRadioButton rbLaki;
     public javax.swing.JRadioButton rbPerempuan;
-    public javax.swing.JTable tablel;
+    public javax.swing.JTable tabel;
     public javax.swing.JTextField txtNIS;
     public javax.swing.JTextField txtNama;
     // End of variables declaration//GEN-END:variables
