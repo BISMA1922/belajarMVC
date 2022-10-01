@@ -7,6 +7,7 @@ package com.view;
 
 import com.model.model_simpan;
 import java.sql.SQLException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -94,6 +95,11 @@ model_simpan model = new model_simpan();
 
         btnBaru.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnBaru.setText("Baru");
+        btnBaru.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBaruActionPerformed(evt);
+            }
+        });
 
         btnSimpan.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnSimpan.setText("Simpan");
@@ -258,6 +264,14 @@ model_simpan model = new model_simpan();
            
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
+
+    private void btnBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruActionPerformed
+    try {
+        model.Baru(this);
+    } catch (SQLException ex) {
+        Logger.getLogger(view.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_btnBaruActionPerformed
 
     /**
      * @param args the command line arguments
