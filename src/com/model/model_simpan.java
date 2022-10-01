@@ -120,10 +120,10 @@ String jk;
 
     @Override
     public void Baru(view siswa) throws SQLException {
-//       siswa.txtNIS.setText("");
-//       siswa.txtNama.setText("");
-//       siswa.rbLaki.setSelected(true);
-//       siswa.cbJurusan.setSelectedIndex(0);
+       siswa.txtNIS.setText("");
+       siswa.txtNama.setText("");
+       siswa.rbLaki.setSelected(true);
+       siswa.cbJurusan.setSelectedIndex(0);
     }
 
     @Override
