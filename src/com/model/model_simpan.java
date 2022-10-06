@@ -53,21 +53,20 @@ String jk;
        }
        try {
            Connection con = koneksi.getcon();
-           String sql = "UPDATE siswa SET nama=?, jenis_kelamin=?, "
-                   + "jurusan=? WHERE NIS=?";
-           PreparedStatement prepare = con.prepareStatement(sql);
-           prepare.setString(4, siswa.txtNIS.getText());
-           prepare.setString(1, siswa.txtNama.getText());
-           prepare.setString(2, jk);
-           prepare.setString(3, (String) siswa.cbJurusan.getSelectedItem());
-           prepare.executeUpdate();
-           JOptionPane.showMessageDialog(null, "Data Berhasil diubah");
-           prepare.close();
+    String sql = "UPDATE siswa_sabtu SET nama=?, jenis_kelamin=?, jurusan=? WHERE NIS=?";
+    PreparedStatement prepare = con.prepareStatement(sql);
+    prepare.setString(4, siswa.txtNIS.getText());
+    prepare.setString(1, siswa.txtNama.getText());
+    prepare.setString(2, jk);
+    prepare.setString(3, (String) siswa.cbJurusan.getSelectedItem());
+    prepare.executeUpdate();
+    JOptionPane.showMessageDialog(null, "Data Berhasil diUbah");
+    prepare.close();
        } catch (Exception e) {
            System.out.println(e); 
        } finally {
                Tampil(siswa);
-//               siswa.setLebarKolom();
+          siswa.setLebarKolom();
                Baru(siswa);
                }
        }
@@ -78,7 +77,7 @@ String jk;
     public void Hapus(view siswa) throws SQLException {
        try {
            Connection con = koneksi.getcon();
-           String sql = "DELETE FROM siswa WHERE NIS =?";
+           String sql = "DELETE FROM siswa_sabtu WHERE NIS =?";
            PreparedStatement prepare = con.prepareStatement(sql);
            prepare.setString(1, siswa.txtNIS.getText());
            prepare.executeUpdate();
@@ -102,7 +101,7 @@ String jk;
             Statement stt = con.createStatement();
             //Querry menampilkan semua data pada tabel siswa
             //dengan urutan NIS dari kecil ke besar
-            String sql = "SELECT * FROM siswa ORDER BY NIS ASC";
+            String sql = "SELECT * FROM siswa_sabtu ORDER BY NIS ASC";
             ResultSet res = stt.executeQuery(sql);
             while (res.next()) {
                 Object[] ob = new Object[8];
